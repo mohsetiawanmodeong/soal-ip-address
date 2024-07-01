@@ -12,52 +12,59 @@
 
 <body>
    <div class="container">
-      <h3 class="text-center text-bold">IP Address Practice for PKL Student</h3>
-      <h5 class="text-center">by IT Trakindo Tembagapura Division</h5>
+      <div class="d-flex justify-content-between align-items-center">
+         <img src="trakindo-logo.png" alt="Logo" style="height: 80px;">
+         <div>
+            <button id="refresh-btn" class="btn btn-secondary mb-3 mr-1"><i class="fas fa-sync-alt"></i></button>
+            <button id="fullscreen-btn" class="btn btn-secondary mb-3"><i class="fas fa-expand"></i></button>
+         </div>
+      </div>
+      <h4 class="text-center font-weight-bold">IP Address Practice for PKL Student</h4>
+      <h5 class="text-center font-weight-bold">by IT Trakindo Tembagapura Division</h5>
       <div class="text-center">
          <button id="generate-ip-btn" class="btn btn-primary mb-3">Generate Random IP</button>
       </div>
-      <div id="ip-display" class="text-center"></div>
+      <div id="ip-display" class="text-center font-weight-bold"></div>
       <form id="practice-form">
          <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" class="form-control">
+            <input type="text" id="name" name="name" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="school">School:</label>
-            <input type="text" id="school" name="school" class="form-control">
+            <input type="text" id="school" name="school" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="binary-ip">IP Address (Binary):</label>
-            <input type="text" id="binary-ip" name="binary_ip" class="form-control">
+            <input type="text" id="binary-ip" name="binary_ip" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="subnet-mask">Subnet Mask (Binary):</label>
-            <input type="text" id="subnet-mask" name="subnet_mask" class="form-control">
+            <input type="text" id="subnet-mask" name="subnet_mask" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="network-address">Network Address:</label>
-            <input type="text" id="network-address" name="network_address" class="form-control">
+            <input type="text" id="network-address" name="network_address" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="first-host">First IP Host Address:</label>
-            <input type="text" id="first-host" name="first_host" class="form-control">
+            <input type="text" id="first-host" name="first_host" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="last-host">Last IP Host Address:</label>
-            <input type="text" id="last-host" name="last_host" class="form-control">
+            <input type="text" id="last-host" name="last_host" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="broadcast-address">Broadcast Address:</label>
-            <input type="text" id="broadcast-address" name="broadcast_address" class="form-control">
+            <input type="text" id="broadcast-address" name="broadcast_address" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="num-bits-host">Number of Bits for Host:</label>
-            <input type="text" id="num-bits-host" name="num_bits_host" class="form-control">
+            <input type="text" id="num-bits-host" name="num_bits_host" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
             <label for="num-hosts">Number of Hosts:</label>
-            <input type="text" id="num-hosts" name="num_hosts" class="form-control">
+            <input type="text" id="num-hosts" name="num_hosts" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="text-center mb-5">
             <button type="button" id="reset-btn" class="btn btn-secondary mr-3"><i class="fas fa-undo-alt"></i> Reset</button>

@@ -1,3 +1,17 @@
+document.getElementById('fullscreen-btn').addEventListener('click', function () {
+   if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+   } else {
+      if (document.exitFullscreen) {
+         document.exitFullscreen();
+      }
+   }
+});
+
+document.getElementById('refresh-btn').addEventListener('click', function () {
+   location.reload();
+});
+
 document.getElementById('generate-ip-btn').addEventListener('click', function () {
    fetch('generate_ip.php')
       .then(response => response.json())
@@ -52,16 +66,16 @@ document.getElementById('practice-form').addEventListener('submit', function (ev
       .then(response => response.json())
       .then(data => {
          document.getElementById('results').innerHTML = `
-               <p>Name: ${name}</p>
-               <p>School: ${school}</p>
-               <p>Binary IP Grade: ${data.binary_ip}</p>
-               <p>Subnet Mask Grade: ${data.subnet_mask}</p>
-               <p>Network Address Grade: ${data.network_address}</p>
-               <p>First Host Grade: ${data.first_host}</p>
-               <p>Last Host Grade: ${data.last_host}</p>
-               <p>Broadcast Address Grade: ${data.broadcast_address}</p>
-               <p>Number of Bits for Host Grade: ${data.num_bits_host}</p>
-               <p>Number of Hosts Grade: ${data.num_hosts}</p>
+               <p>Name: <b>${name}</b></p>
+               <p>School: <b>${school}</b></p>
+               <p>Binary IP Grade: <b>${data.binary_ip}</b></p>
+               <p>Subnet Mask Grade: <b>${data.subnet_mask}</b></p>
+               <p>Network Address Grade: <b>${data.network_address}</b></p>
+               <p>First Host Grade: <b>${data.first_host}</b></p>
+               <p>Last Host Grade: <b>${data.last_host}</b></p>
+               <p>Broadcast Address Grade: <b>${data.broadcast_address}</b></p>
+               <p>Number of Bits for Host Grade: <b>${data.num_bits_host}</b></p>
+               <p>Number of Hosts Grade: <b>${data.num_hosts}</b></p>
             `;
          $('#resultModal').modal('show');
       });
