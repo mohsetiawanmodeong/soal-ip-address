@@ -122,6 +122,32 @@ document.getElementById('refresh-btn').addEventListener('click', function () {
    location.reload();
 });
 
+document.getElementById('reset-all-btn').addEventListener('click', function () {
+   resetAll();
+});
+
+function resetAll() {
+   // Reset form fields
+   resetForm();
+
+   // Clear generated IP display
+   document.getElementById('ip-display').textContent = '';
+
+   // Clear timer display
+   document.getElementById('timer').textContent = '';
+
+   // Clear localStorage
+   localStorage.removeItem('formData');
+   localStorage.removeItem('generalFormData');
+   localStorage.removeItem('generatedIP');
+   localStorage.removeItem('startTime');
+
+   // Stop the timer if it's running
+   if (timerInterval) {
+      stopTimer();
+   }
+}
+
 document.getElementById('generate-ip-btn').addEventListener('click', function () {
    fetch('generate_ip.php')
       .then(response => response.json())

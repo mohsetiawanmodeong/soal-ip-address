@@ -68,6 +68,7 @@
             <input type="text" id="num-hosts" name="num_hosts" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="text-center mb-5">
+            <button type="button" id="reset-all-btn" class="btn btn-danger mr-3"><i class="fas fa-trash-alt"></i> Reset All</button>
             <button type="button" id="reset-btn" class="btn btn-secondary mr-3"><i class="fas fa-undo-alt"></i> Reset</button>
             <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Grade</button>
          </div>
