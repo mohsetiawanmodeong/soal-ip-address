@@ -1,3 +1,94 @@
+let timerInterval;
+let startTime;
+
+function startTimer() {
+   startTime = new Date();
+   localStorage.setItem('startTime', startTime); // Simpan waktu mulai di localStorage
+   timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+   const elapsedTime = new Date() - new Date(localStorage.getItem('startTime'));
+   const minutes = Math.floor(elapsedTime / 60000);
+   const seconds = Math.floor((elapsedTime % 60000) / 1000);
+   const timerText = `${minutes}m ${seconds}s`;
+   document.getElementById('timer').innerText = timerText;
+   document.getElementById('modal-timer').innerText = timerText; // Update timer di modal
+}
+
+function stopTimer() {
+   clearInterval(timerInterval);
+   timerInterval = null;
+   localStorage.removeItem('startTime'); // Hapus waktu mulai dari localStorage
+}
+
+function checkAllGrades100(grades) {
+   return Object.values(grades).every(grade => grade === 100);
+}
+
+document.getElementById('generate-ip-btn').addEventListener('click', () => {
+   startTimer();
+});
+
+document.getElementById('practice-form').addEventListener('submit', (event) => {
+   event.preventDefault();
+   const name = document.getElementById('name').value;
+   const school = document.getElementById('school').value;
+   const ip = event.target.dataset.ip;
+   const mask = event.target.dataset.mask;
+   const binary_ip = document.getElementById('binary-ip').value;
+   const subnet_mask = document.getElementById('subnet-mask').value;
+   const network_address = document.getElementById('network-address').value;
+   const first_host = document.getElementById('first-host').value;
+   const last_host = document.getElementById('last-host').value;
+   const broadcast_address = document.getElementById('broadcast-address').value;
+   const num_bits_host = document.getElementById('num-bits-host').value;
+   const num_hosts = document.getElementById('num-hosts').value;
+
+   saveFormData();
+
+   fetch('grade.php', {
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ ip, mask, binary_ip, subnet_mask, network_address, first_host, last_host, broadcast_address, num_bits_host, num_hosts, name, school })
+   })
+      .then(response => response.json())
+      .then(data => {
+         document.getElementById('results').innerHTML = `
+               <p>Name: <b>${name}</b></p>
+               <p>School: <b>${school}</b></p>
+               <p>Binary IP Grade: <b>${data.binary_ip}</b></p>
+               <p>Subnet Mask Grade: <b>${data.subnet_mask}</b></p>
+               <p>Network Address Grade: <b>${data.network_address}</b></p>
+               <p>First Host Grade: <b>${data.first_host}</b></p>
+               <p>Last Host Grade: <b>${data.last_host}</b></p>
+               <p>Broadcast Address Grade: <b>${data.broadcast_address}</b></p>
+               <p>Number of Bits for Host Grade: <b>${data.num_bits_host}</b></p>
+               <p>Number of Hosts Grade: <b>${data.num_hosts}</b></p>
+            `;
+         $('#resultModal').modal('show');
+
+         if (checkAllGrades100(data)) {
+            stopTimer();
+         } else {
+            if (!timerInterval) {
+               startTimer();
+            }
+         }
+      });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+   const savedStartTime = localStorage.getItem('startTime');
+   if (savedStartTime) {
+      startTime = new Date(savedStartTime);
+      timerInterval = setInterval(updateTimer, 1000);
+   }
+   // ... existing code ...
+});
+
 document.getElementById('fullscreen-btn').addEventListener('click', function () {
    if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
@@ -38,100 +129,6 @@ function displayGeneratedIP(data) {
 }
 
 document.getElementById('practice-form').addEventListener('input', saveGeneralFormData); // Simpan data form setiap kali ada perubahan
-
-document.getElementById('practice-form').addEventListener('submit', function (event) {
-   event.preventDefault();
-   const name = document.getElementById('name').value;
-   const school = document.getElementById('school').value;
-   const ip = event.target.dataset.ip;
-   const mask = event.target.dataset.mask;
-   const binary_ip = document.getElementById('binary-ip').value;
-   const subnet_mask = document.getElementById('subnet-mask').value;
-   const network_address = document.getElementById('network-address').value;
-   const first_host = document.getElementById('first-host').value;
-   const last_host = document.getElementById('last-host').value;
-   const broadcast_address = document.getElementById('broadcast-address').value;
-   const num_bits_host = document.getElementById('num-bits-host').value;
-   const num_hosts = document.getElementById('num-hosts').value;
-
-   saveFormData();
-
-   fetch('grade.php', {
-      method: 'POST',
-      headers: {
-         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ ip, mask, binary_ip, subnet_mask, network_address, first_host, last_host, broadcast_address, num_bits_host, num_hosts, name, school })
-   })
-      .then(response => response.json())
-      .then(data => {
-         document.getElementById('results').innerHTML = `
-               <p>Name: <b>${name}</b></p>
-               <p>School: <b>${school}</b></p>
-               <p>Binary IP Grade: <b>${data.binary_ip}</b></p>
-               <p>Subnet Mask Grade: <b>${data.subnet_mask}</b></p>
-               <p>Network Address Grade: <b>${data.network_address}</b></p>
-               <p>First Host Grade: <b>${data.first_host}</b></p>
-               <p>Last Host Grade: <b>${data.last_host}</b></p>
-               <p>Broadcast Address Grade: <b>${data.broadcast_address}</b></p>
-               <p>Number of Bits for Host Grade: <b>${data.num_bits_host}</b></p>
-               <p>Number of Hosts Grade: <b>${data.num_hosts}</b></p>
-            `;
-         $('#resultModal').modal('show');
-      });
-});
-
-// document.getElementById('subnet-form').addEventListener('submit', function (event) {
-//    event.preventDefault();
-//    const ip = document.getElementById('practice-form').dataset.ip;
-//    const mask = document.getElementById('practice-form').dataset.mask;
-//    const subnets = Array.from(document.querySelectorAll('#subnet-table tbody tr')).map(row => ({
-//       num_hosts: row.querySelector('.num-hosts').value,
-//       ip_subnet: row.querySelector('.ip-subnet').value,
-//       first_host: row.querySelector('.first-host').value,
-//       last_host: row.querySelector('.last-host').value,
-//       broadcast: row.querySelector('.broadcast').value,
-//       subnet_mask: row.querySelector('.subnet-mask').value,
-//       cidr: row.querySelector('.cidr').value
-//    }));
-
-//    fetch('grade_subnet.php', {
-//       method: 'POST',
-//       headers: {
-//          'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({ ip, mask, subnets })
-//    })
-//       .then(response => response.json())
-//       .then(data => {
-//          document.getElementById('subnet-results').innerHTML = data.map((grade, index) => `
-//                <p>Subnet ${index + 1} Grades:</p>
-//                <p>Subnet IP Address: ${grade.ip_subnet}</p>
-//                <p>First Host IP: ${grade.first_host}</p>
-//                <p>Last Host IP: ${grade.last_host}</p>
-//                <p>Broadcast Address: ${grade.broadcast}</p>
-//                <p>Subnet Mask: ${grade.subnet_mask}</p>
-//                <p>CIDR Notation: ${grade.cidr}</p>
-//             `).join('');
-//       });
-// });
-
-// // Add rows dynamically to the subnet table
-// const numberOfSubnets = 8;  // Change this number based on how many subnets you want
-// const tbody = document.querySelector('#subnet-table tbody');
-// for (let i = 0; i < numberOfSubnets; i++) {
-//    const row = document.createElement('tr');
-//    row.innerHTML = `
-//       <td><input type="text" class="num-hosts"></td>
-//       <td><input type="text" class="ip-subnet"></td>
-//       <td><input type="text" class="first-host"></td>
-//       <td><input type="text" class="last-host"></td>
-//       <td><input type="text" class="broadcast"></td>
-//       <td><input type="text" class="subnet-mask"></td>
-//       <td><input type="text" class="cidr"></td>
-//     `;
-//    tbody.appendChild(row);
-// }
 
 function saveFormData() {
    const formData = {

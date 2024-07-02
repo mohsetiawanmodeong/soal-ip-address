@@ -25,6 +25,7 @@
          <button id="generate-ip-btn" class="btn btn-primary mb-3">Generate Random IP</button>
       </div>
       <div id="ip-display" class="text-center font-weight-bold"></div>
+      <div id="timer" class="text-center font-weight-bold"></div>
       <form id="practice-form">
          <div class="form-group">
             <label for="name">Name:</label>
@@ -82,7 +83,7 @@
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-header">
-               <h5 class="modal-title" id="resultModalLabel">Result</h5>
+               <h5 class="modal-title" id="resultModalLabel">Result: <span id="modal-timer" class="font-weight-bold"></span></h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
