@@ -19,7 +19,7 @@
             <button id="fullscreen-btn" class="btn btn-secondary mb-3"><i class="fas fa-expand"></i></button>
          </div>
       </div>
-      <h4 class="text-center font-weight-bold">IP Address Practice for PKL Student</h4>
+      <h4 class="text-center font-weight-bold">IPv4 Address Practice for PKL Student</h4>
       <h5 class="text-center font-weight-bold">by IT Trakindo Tembagapura Division</h5>
       <div class="text-center">
          <button id="generate-ip-btn" class="btn btn-primary mb-3">Generate Random IP</button>
