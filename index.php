@@ -73,7 +73,7 @@
             <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Grade</button>
          </div>
          <footer class="text-center">
-            <p>Jika semua grade sudah 100, maka silahkan screenshot hasilnya dan <a href="mailto:m.setiawan.modeong@trakindo.co.id?subject=Hasil%20Grade%20IP%20Address&body=Berikut%20screenshot%20hasil%20grade%20IP%20Address%20saya.">kirim ke email: m.setiawan.modeong@trakindo.co.id</a></p>
+            <p>Jika semua nilai grade <b>100</b>, silahkan screenshot hasilnya dan kirim ke email: <a href="mailto:m.setiawan.modeong@trakindo.co.id?subject=Hasil%20Grade%20IP%20Address&body=Berikut%20screenshot%20hasil%20grade%20IP%20Address%20saya.">m.setiawan.modeong@trakindo.co.id</a></p>
             <p style="font-size: small;">Copyright &copy; 2024, Instructor: Moh. Setiawan Modeong</p>
          </footer>
       </form>
