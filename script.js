@@ -71,14 +71,14 @@ document.getElementById('practice-form').addEventListener('submit', (event) => {
          document.getElementById('results').innerHTML = `
                <p>Name: <b>${name}</b></p>
                <p>School: <b>${school}</b></p>
-               <p>Binary IP Grade: <b>${data.binary_ip}</b></p>
-               <p>Subnet Mask Grade: <b>${data.subnet_mask}</b></p>
-               <p>Network Address Grade: <b>${data.network_address}</b></p>
-               <p>First Host Grade: <b>${data.first_host}</b></p>
-               <p>Last Host Grade: <b>${data.last_host}</b></p>
-               <p>Broadcast Address Grade: <b>${data.broadcast_address}</b></p>
-               <p>Number of Bits for Host Grade: <b>${data.num_bits_host}</b></p>
-               <p>Number of Hosts Grade: <b>${data.num_hosts}</b></p>
+               <p>1. IP Address (Binary): <b>${data.binary_ip}</b></p>
+               <p>2. Subnet Mask (Binary): <b>${data.subnet_mask}</b></p>
+               <p>3. Network Address: <b>${data.network_address}</b></p>
+               <p>4. First IP Host Address: <b>${data.first_host}</b></p>
+               <p>5. Last IP Host Address: <b>${data.last_host}</b></p>
+               <p>6. Broadcast Address: <b>${data.broadcast_address}</b></p>
+               <p>7. Number of Bits for Host: <b>${data.num_bits_host}</b></p>
+               <p>8. Number of Hosts: <b>${data.num_hosts}</b></p>
                <div class="progress progress-sm">
                   <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="${progressPercentage}" aria-valuemin="0" aria-valuemax="100" style="width: ${progressPercentage}%">
                   </div>

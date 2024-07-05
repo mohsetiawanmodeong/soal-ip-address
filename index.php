@@ -36,35 +36,35 @@
             <input type="text" id="school" name="school" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
-            <label for="binary-ip">IP Address (Binary):</label>
+            <label for="binary-ip">1. IP Address (Binary):</label>
             <input type="text" id="binary-ip" name="binary_ip" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
-            <label for="subnet-mask">Subnet Mask (Binary):</label>
+            <label for="subnet-mask">2. Subnet Mask (Binary):</label>
             <input type="text" id="subnet-mask" name="subnet_mask" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
-            <label for="network-address">Network Address:</label>
+            <label for="network-address">3. Network Address:</label>
             <input type="text" id="network-address" name="network_address" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
-            <label for="first-host">First IP Host Address:</label>
+            <label for="first-host">4. First IP Host Address:</label>
             <input type="text" id="first-host" name="first_host" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
-            <label for="last-host">Last IP Host Address:</label>
+            <label for="last-host">5. Last IP Host Address:</label>
             <input type="text" id="last-host" name="last_host" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
-            <label for="broadcast-address">Broadcast Address:</label>
+            <label for="broadcast-address">6. Broadcast Address:</label>
             <input type="text" id="broadcast-address" name="broadcast_address" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
-            <label for="num-bits-host">Number of Bits for Host:</label>
+            <label for="num-bits-host">7. Number of Bits for Host:</label>
             <input type="text" id="num-bits-host" name="num_bits_host" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="form-group">
-            <label for="num-hosts">Number of Hosts:</label>
+            <label for="num-hosts">8. Number of Hosts:</label>
             <input type="text" id="num-hosts" name="num_hosts" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="text-center mb-5">
