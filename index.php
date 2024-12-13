@@ -4,18 +4,18 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+   <link rel="stylesheet" href="assets/css/all.min.css">
+   <link rel="stylesheet" href="assets/css/style.css">
    <title>IP Address Practice</title>
 </head>
 
 <body>
    <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-         <img src="trakindo-logo.png" alt="Logo" style="height: 80px;">
+         <img src="assets/img/trakindo-logo.png" alt="Logo" style="height: 80px;">
          <div>
-            <button id="refresh-btn" class="btn btn-secondary mb-3 mr-1"><i class="fas fa-sync-alt"></i></button>
+            <button id="refresh-btn" class="btn btn-secondary mb-3 mr-1"><i class="fas fa-sync"></i></button>
             <button id="fullscreen-btn" class="btn btn-secondary mb-3"><i class="fas fa-expand"></i></button>
          </div>
       </div>
@@ -68,8 +68,8 @@
             <input type="text" id="num-hosts" name="num_hosts" class="form-control font-weight-bold" autocomplete="off">
          </div>
          <div class="text-center mb-5">
-            <button type="button" id="reset-all-btn" class="btn btn-danger mr-3"><i class="fas fa-trash-alt"></i> Reset All</button>
-            <button type="button" id="reset-btn" class="btn btn-secondary mr-3"><i class="fas fa-undo-alt"></i> Reset</button>
+            <button type="button" id="reset-all-btn" class="btn btn-danger mr-3"><i class="fas fa-trash"></i> Reset All</button>
+            <button type="button" id="reset-btn" class="btn btn-secondary mr-3"><i class="fas fa-undo"></i> Reset</button>
             <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Grade</button>
          </div>
          <footer class="text-center">
@@ -99,10 +99,10 @@
       </div>
    </div>
 
-   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   <script src="script.js"></script>
+   <script src="assets/js/jquery.min.js"></script>
+   <script src="assets/js/popper.min.js"></script>
+   <script src="assets/js/bootstrap.min.js"></script>
+   <script src="assets/js/script.js"></script>
 </body>
 
 </html>
